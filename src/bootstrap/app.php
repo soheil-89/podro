@@ -62,6 +62,7 @@ $app->singleton(
 
 $app->configure('app');
 $app->configure('auth');
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -95,6 +96,7 @@ $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 $app->register(Thedevsaddam\LumenRouteList\LumenRouteListServiceProvider::class);
 $app->register(Urameshibr\Providers\FormRequestServiceProvider::class);
+$app->register(App\Providers\FacadeProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
