@@ -16,7 +16,7 @@ class View extends Model
      * @var string[]
      */
     protected $fillable = [
-        "count","viewable_id","viewable_type"
+        "count","viewable_id","viewable_type","market_id"
     ];
 
     /**
@@ -28,11 +28,11 @@ class View extends Model
         "viewable_id","viewable_type"
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
-    public function viewable()
-    {
-        return $this->morphTo();
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
+    public function market(){
+        return $this->belongsTo(User::class);
+    }
+
 }

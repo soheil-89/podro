@@ -8,6 +8,8 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    protected $pageCount = 15;
+
     protected function response($data, $statusCode = Response::HTTP_OK)
     {
         return response()->json($data, $statusCode);

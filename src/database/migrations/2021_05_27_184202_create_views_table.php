@@ -16,9 +16,11 @@ class CreateViewsTable extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->string("count",255);
-            $table->unsignedBigInteger("viewable_id");
-            $table->string("viewable_type",255);
+            $table->unsignedBigInteger("market_id");
+            $table->unsignedBigInteger("product_id");
             $table->timestamps();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('market_id')->references('id')->on('users');
         });
     }
 

@@ -13,6 +13,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Hash;
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
