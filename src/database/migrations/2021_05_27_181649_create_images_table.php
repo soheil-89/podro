@@ -16,8 +16,9 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string("url",255);
-            $table->unsignedBigInteger("imageable_id");
-            $table->string("imageable_type",255);
+            $table->unsignedBigInteger("imageable_id")->nullable();
+            $table->string("imageable_type",255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

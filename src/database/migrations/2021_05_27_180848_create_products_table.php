@@ -19,7 +19,9 @@ class CreateProductsTable extends Migration
             $table->string("title",255);
             $table->text("description");
             $table->enum("status",["active","inactive"]);
+            $table->softDeletes();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
