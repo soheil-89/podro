@@ -1,0 +1,29 @@
+version: "3.1"
+services:
+  podro:
+    build: ./nginx
+    restart: always
+    ports:
+      - 85:80
+    volumes:
+      - ../src:/var/www
+    working_dir: /var/www
+    environment:
+      - COMPOSER_MEMORY_LIMIT=-1
+    env_file:
+      - nginx/xdebug.env
+  mysql:
+    build: ./mysql
+    restart: always
+    volumes:
+      - ../data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root' # TODO: Change this
+      MYSQL_DATABASE: 'podro'
+      MYSQL_USER: 'podro'
+      MYSQL_PASS: 'pass'
+  adminer_1:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
